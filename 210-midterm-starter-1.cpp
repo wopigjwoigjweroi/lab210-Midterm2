@@ -1,21 +1,24 @@
 #include <iostream>
+#include <fstream> 
+#include <vector>
+#include <cstdlib> 
 using namespace std;
 
-const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20; // We create four constant integer variables 
+
+struct Node { // Struct named 'Node' is created which declares elements for the linked list
+
+    string data; 
+
+    Node* prev;
+
+    Node* next;
+
+    Node(string d) : data(d), next(nullptr), prev(nullptr) {}
+}; 
 
 // DoublyLinkedList class is created 
 class DoublyLinkedList {
 private:
-    struct Node { // Struct named 'Node' is created which declares elements for the linked list
-        int data; 
-        Node* prev;
-        Node* next;
-        Node(int val, Node* p = nullptr, Node* n = nullptr) { // Consturctor for Node struct is created 
-            data = val; 
-            prev = p; // prev pointer is initialized with p
-            next = n; // next pointer is initialized with p 
-        }
-    };
 
     Node* head; // Points to the head of the linked list
     Node* tail; // Points to the end of the linked list 
