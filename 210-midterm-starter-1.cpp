@@ -105,52 +105,45 @@ public:
             delete temp;
         }
     }
+
     void print() {
         Node* current = head;
-        if (!current) {
-            cout << "List is empty." << endl;
-            return;
-        }
+        
         while (current) {
+            
             cout << current->data << " ";
             current = current->next;
+            
         }
         cout << endl;
     }
 
-    void print_reverse() {
-        Node* current = tail;
-        if (!current) { 
-            cout << "List is empty." << endl;
-            return;
-        }
-        while (current) {
-            cout << current->data << " ";
-            current = current->prev;
-        }
-        cout << endl;
-    }
+    Node* random_customer() {
 
-    void every_other_element() {
+        int count = 0; 
 
         Node* current = head; 
 
-        bool skip = false; 
-
         while (current) {
 
-            if (!skip) {
-
-                 cout << current->data << " "; 
-            }
-
-            skip = !skip; 
+            count++; 
 
             current = current->next; 
-              
         }
-           cout << endl; 
+
+        int random = rand() % count; 
+
+        current = head; 
+
+        for (int i = 0; i < random; i++) {
+
+            current->next; 
+        }
+        
+        return current;
     }
+
+    
 };
 
 int main() {
