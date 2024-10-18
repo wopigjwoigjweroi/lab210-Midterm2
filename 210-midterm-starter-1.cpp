@@ -1,9 +1,10 @@
+// COMSC-210 | Midterm#2 | Jeremiah Ortiz
 #include <iostream>
 #include <fstream> 
 #include <vector>
 #include <cstdlib> 
+#include <string>
 using namespace std;
-
 
 struct Node {
 
@@ -143,8 +144,44 @@ public:
         return current;
     }
 
-    
+
+    void remove_customer(Node* customer) {
+
+        if (customer == head) {
+            
+            pop_front(); 
+            
+        } else if (customer == tail) {
+
+            pop_back(); 
+
+        } else {
+
+            customer->prev->next = customer->next; 
+
+            customer->next->prev = customer->prev; 
+
+            delete customer; 
+        }
+    }
 };
+
+
+vector<string> names(const string& filename) {
+
+    vector<string> nameList;
+
+    fstream file("names.txt); 
+
+    string names; 
+
+    while (getline(file, name)) {
+
+        nameList.push_back(names); 
+    }
+
+    return nameList; 
+}
 
 int main() {
 
